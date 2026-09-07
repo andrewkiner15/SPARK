@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPARK</title>
+
+    <meta
+        name="description"
+        content="SPARK — Ideas become reality."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0b0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVIGATION */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 7%;
+
+            background: rgba(11, 11, 15, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #bcbcc5;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #ffffff;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 120px 20px 80px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255, 255, 255, 0.08),
+                    transparent 45%
+                ),
+                #0b0b0f;
+        }
+
+        .hero h1 {
+            font-size: clamp(5rem, 18vw, 12rem);
+            font-weight: 900;
+            letter-spacing: 12px;
+            line-height: 0.9;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #a8a8b3
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            margin-top: 30px;
+
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: #bcbcc5;
+            letter-spacing: 2px;
+        }
+
+        .hero-button {
+            margin-top: 45px;
+
+            padding: 14px 28px;
+
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+
+            background: #ffffff;
+            color: #0b0b0f;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-3px);
+            background: #dddddf;
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .section-text {
+            max-width: 700px;
+            color: #a7a7b0;
+            font-size: 1.1rem;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #101016;
+        }
+
+        /* PROJECTS */
+
+        .projects {
+            background: #0b0b0f;
+        }
+
+        .project-grid {
+            margin-top: 45px;
+
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(230px, 1fr)
+            );
+
+            gap: 20px;
+        }
+
+        .project-card {
+            min-height: 200px;
+
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+
+            background: #111118;
+
+            transition: 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: #92929c;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #101016;
+            text-align: center;
+        }
+
+        .contact .section-text {
+            margin: 0 auto;
+        }
+
+        .contact-button {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 14px 30px;
+
+            border-radius: 50px;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            transition: 0.25s;
+        }
+
+        .contact-button:hover {
+            background: #ffffff;
+            color: #0b0b0f;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #707079;
+
+            font-size: 0.9rem;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
+            }
+
+            .hero h1 {
+                letter-spacing: 5px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <a href="#home" class="logo">SPARK</a>
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <h1>SPARK</h1>
+
+            <p class="tagline">
+                Ideas become reality.
+            </p>
+
+            <a href="#about" class="hero-button">
+                Explore SPARK
+            </a>
+
+        </section>
+
+
+        <!-- ABOUT -->
+
+        <section class="about" id="about">
+
+            <h2 class="section-title">
+                What is SPARK?
+            </h2>
+
+            <p class="section-text">
+                SPARK is a new creative project built around ideas,
+                experimentation, and making things happen.
+                Its next chapter is still being written.
+            </p>
+
+        </section>
+
+
+        <!-- PROJECTS -->
+
+        <section class="projects" id="projects">
+
+            <h2 class="section-title">
+                Projects
+            </h2>
+
+            <p class="section-text">
+                The SPARK project list is just getting started.
+            </p>
+
+            <div class="project-grid">
+
+                <div class="project-card">
+                    <h3>Coming Soon</h3>
+                    <p>
+                        The first SPARK project will appear here.
+                    </p>
+                </div>
+
+                <div class="project-card">
+                    <h3>More to Come</h3>
+                    <p>
+                        New ideas are being developed.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+
+        <section class="contact" id="contact">
+
+            <h2 class="section-title">
+                Get in Touch
+            </h2>
+
+            <p class="section-text">
+                SPARK is only beginning.
+                Check back later for what's next.
+            </p>
+
+            <a href="mailto:hello@spark.example" class="contact-button">
+                Contact SPARK
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <span>© 2026 SPARK</span>
+
+        <span>Ideas become reality.</span>
+
+    </footer>
+
+</body>
+</html>
